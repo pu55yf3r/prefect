@@ -432,9 +432,6 @@ class TaskRunner(Runner):
         if state.is_mapped():
             if len(state.map_states) == 0 and state.n_map_states > 0:  # type: ignore
                 state.map_states = [None] * state.n_map_states  # type: ignore
-            for edge, upstate in upstream_states.items():
-                if edge.key:
-                    state.cached_inputs[edge.key] = upstate._result
             raise ENDRUN(state)
 
         # we can't map if there are no success states with iterables upstream
