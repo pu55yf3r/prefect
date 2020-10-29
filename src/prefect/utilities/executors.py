@@ -515,7 +515,7 @@ def prepare_upstream_states_for_mapping(
                                 upstream_state.result[i]
                             )
                         states[edge].result = upstream_result
-                        if i >= len(state.map_states):  # type: ignore
+                        if state.map_states and i >= len(state.map_states):  # type: ignore
                             raise IndexError()
                     elif state.is_mapped():
                         if i >= len(state.map_states):  # type: ignore
